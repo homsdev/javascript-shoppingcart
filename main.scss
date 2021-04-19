@@ -1,9 +1,37 @@
 $dark: #554640;
 $light: #cde6f5;
+$wood: #664e4c;
+$leaf: #c1d37f;
+$cursive_font: "Lobster", cursive;
+$font_normal: "Antonio", sans-serif;
+$text_font: "Noto Sans JP", sans-serif;
 @import url("https://fonts.googleapis.com/css2?family=Lobster&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Antonio:wght@100;200;300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300&display=swap");
+
+/*===================================
+            Mixins Area
+=====================================*/
+@mixin tablet {
+  @media only screen and (max-width: 768px) {
+    @content;
+  }
+}
+
+@mixin laptop {
+  @media only screen and (min-width: 1200px) {
+    @content;
+  }
+}
+
+/*===================================
+        <end> Mixins Area <end>
+=====================================*/
+
 body {
   font-size: 10px;
 }
+
 nav {
   width: 100%;
   height: 3rem;
@@ -83,5 +111,97 @@ nav {
         transform: rotate(45deg);
       }
     }
+  }
+}
+
+.grid-container {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem 5%;
+  .item {
+    border: 1px solid $wood;
+    border-radius: 10px;
+    margin: 0.5rem auto;
+    overflow: hidden;
+    &__title {
+      position: relative;
+      background-color: $wood;
+      height: 1.4rem;
+      h2 {
+        position: absolute;
+        right: 0;
+        width: max-content;
+        margin: 0;
+        background-color: white;
+        font-size: 1.4rem;
+        padding: 0 0.5rem;
+        font-family: $cursive_font;
+      }
+    }
+
+    &__body {
+      display: flex;
+      .preview {
+        width: 50%;
+        padding: 8% 5%;
+
+        h3 {
+          font-size: 2.8rem;
+          line-height: 1.4rem;
+          margin: 0;
+          font-family: $cursive_font;
+          span {
+            font-size: 1.4rem;
+            font-family: $font_normal;
+          }
+        }
+
+        p {
+          font: {
+            size: 1.4rem;
+            family: $font_normal;
+          }
+          color: $leaf;
+        }
+        img {
+          width: 100%;
+        }
+      }
+
+      .details {
+        width: 50%;
+        padding: 5% 3%;
+        p {
+          letter-spacing: 2px;
+          text-align: justify;
+          font: {
+            size: 0.6rem;
+            family: $text_font;
+          }
+        }
+      }
+    }
+
+    &__footer {
+      padding: 0.5rem 1rem;
+      display: flex;
+      justify-content: flex-end;
+      a {
+        background-color: $leaf;
+        padding: 0.5em 1em;
+        font-size: 1rem;
+        border-radius: 5px;
+        color: $dark;
+        text-decoration: none;
+      }
+    }
+  }
+}
+
+.grid-container {
+  @include laptop() {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
   }
 }

@@ -1,4 +1,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Lobster&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Antonio:wght@100;200;300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300&display=swap");
+/*===================================
+            Mixins Area
+=====================================*/
+/*===================================
+        <end> Mixins Area <end>
+=====================================*/
 body {
   font-size: 10px;
 }
@@ -103,5 +111,116 @@ nav .active .bar::before {
   background-color: #554640;
   -webkit-transform: rotate(45deg);
           transform: rotate(45deg);
+}
+
+.grid-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 1rem 5%;
+}
+
+.grid-container .item {
+  border: 1px solid #664e4c;
+  border-radius: 10px;
+  margin: 0.5rem auto;
+  overflow: hidden;
+}
+
+.grid-container .item__title {
+  position: relative;
+  background-color: #664e4c;
+  height: 1.4rem;
+}
+
+.grid-container .item__title h2 {
+  position: absolute;
+  right: 0;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  margin: 0;
+  background-color: white;
+  font-size: 1.4rem;
+  padding: 0 0.5rem;
+  font-family: "Lobster", cursive;
+}
+
+.grid-container .item__body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.grid-container .item__body .preview {
+  width: 50%;
+  padding: 8% 5%;
+}
+
+.grid-container .item__body .preview h3 {
+  font-size: 2.8rem;
+  line-height: 1.4rem;
+  margin: 0;
+  font-family: "Lobster", cursive;
+}
+
+.grid-container .item__body .preview h3 span {
+  font-size: 1.4rem;
+  font-family: "Antonio", sans-serif;
+}
+
+.grid-container .item__body .preview p {
+  font-size: 1.4rem;
+  font-family: "Antonio", sans-serif;
+  color: #c1d37f;
+}
+
+.grid-container .item__body .preview img {
+  width: 100%;
+}
+
+.grid-container .item__body .details {
+  width: 50%;
+  padding: 5% 3%;
+}
+
+.grid-container .item__body .details p {
+  letter-spacing: 2px;
+  text-align: justify;
+  font-size: 0.6rem;
+  font-family: "Noto Sans JP", sans-serif;
+}
+
+.grid-container .item__footer {
+  padding: 0.5rem 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+.grid-container .item__footer a {
+  background-color: #c1d37f;
+  padding: 0.5em 1em;
+  font-size: 1rem;
+  border-radius: 5px;
+  color: #554640;
+  text-decoration: none;
+}
+
+@media only screen and (min-width: 1200px) {
+  .grid-container {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: (1fr)[4];
+        grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+  }
 }
 /*# sourceMappingURL=main.css.map */
