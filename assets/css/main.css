@@ -1,0 +1,107 @@
+@import url("https://fonts.googleapis.com/css2?family=Lobster&display=swap");
+body {
+  font-size: 10px;
+}
+
+nav {
+  width: 100%;
+  height: 3rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: #cde6f5;
+}
+
+nav .logo {
+  text-decoration: none;
+  letter-spacing: 1px;
+  margin-left: 1rem;
+  color: #554640;
+  font-size: 1.4rem;
+  font-family: "Lobster", cursive;
+}
+
+nav .toggle {
+  height: 2rem;
+  width: 2rem;
+  border: 2px solid #554640;
+  border-radius: 6px;
+  margin-right: 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 0 0.2rem;
+  cursor: pointer;
+}
+
+nav .toggle .bar, nav .toggle .bar::before, nav .toggle .bar::after {
+  position: relative;
+  width: 100%;
+  height: 4px;
+  border-radius: 2px;
+  background-color: #554640;
+  -webkit-transition: 1s ease;
+  transition: 1s ease;
+}
+
+nav .toggle .bar::before {
+  content: "";
+  position: absolute;
+  -webkit-transform: translateY(-10px);
+          transform: translateY(-10px);
+}
+
+nav .toggle .bar::after {
+  content: "";
+  position: absolute;
+  -webkit-transform: translateY(10px);
+          transform: translateY(10px);
+}
+
+nav ul {
+  width: 100%;
+  height: 0;
+  position: fixed;
+  top: 3rem;
+  left: 0;
+  margin: 0;
+  background-color: #cde6f5;
+  overflow: hidden;
+  -webkit-transition: 1s ease;
+  transition: 1s ease;
+}
+
+nav .active ul {
+  height: 6rem;
+}
+
+nav .active .bar, nav .active .toggle .bar::before, nav .toggle .active .bar::before, nav .active .toggle .bar::after, nav .toggle .active .bar::after {
+  -webkit-transform: rotate(360deg);
+          transform: rotate(360deg);
+  background-color: transparent;
+}
+
+nav .active .bar::after {
+  background-color: #554640;
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+}
+
+nav .active .bar::before {
+  background-color: #554640;
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+/*# sourceMappingURL=main.css.map */
