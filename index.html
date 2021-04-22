@@ -22,6 +22,22 @@
         </div>
       </nav>
     </header>
+
+    <div class="modal hidden">
+      <div class="content">
+        <div class="modal__header">
+          <h2>Quantity</h2>
+          <span id="btnCloseModal">&times</span>
+        </div>
+        <div class="modal__body">
+          <form action="POST">
+            <input type="number" min="1" />
+            <button type="submit">Buy</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
     <main>
       <div class="grid-container">
         <div class="item">
@@ -46,7 +62,7 @@
           </div>
 
           <div class="item__footer">
-            <a href="">Add to Cart</a>
+            <button class="btn-cart" data-id="1234">Add to Cart</button>
           </div>
         </div>
 
@@ -72,189 +88,7 @@
           </div>
 
           <div class="item__footer">
-            <a href="">Add to Cart</a>
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="item__title">
-            <h2>What's new</h2>
-          </div>
-          <div class="item__body">
-            <div class="preview">
-              <h3>Brand<br /><span>Item Name</span></h3>
-              <p>$100.00</p>
-              <img src="/assets/img/cookies.png" alt="Product Image" />
-            </div>
-
-            <div class="details">
-              <p>
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Totam
-                dolorem explicabo non voluptate aliquid tempore! Alias cum
-                corrupti laudantium quis asperiores, ullam voluptatem ducimus
-                non veritatis accusantium perspiciatis provident laborum?
-              </p>
-            </div>
-          </div>
-
-          <div class="item__footer">
-            <a href="">Add to Cart</a>
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="item__title">
-            <h2>What's new</h2>
-          </div>
-          <div class="item__body">
-            <div class="preview">
-              <h3>Brand<br /><span>Item Name</span></h3>
-              <p>$100.00</p>
-              <img src="/assets/img/cookies.png" alt="Product Image" />
-            </div>
-
-            <div class="details">
-              <p>
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Totam
-                dolorem explicabo non voluptate aliquid tempore! Alias cum
-                corrupti laudantium quis asperiores, ullam voluptatem ducimus
-                non veritatis accusantium perspiciatis provident laborum?
-              </p>
-            </div>
-          </div>
-
-          <div class="item__footer">
-            <a href="">Add to Cart</a>
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="item__title">
-            <h2>What's new</h2>
-          </div>
-          <div class="item__body">
-            <div class="preview">
-              <h3>Brand<br /><span>Item Name</span></h3>
-              <p>$100.00</p>
-              <img src="/assets/img/cookies.png" alt="Product Image" />
-            </div>
-
-            <div class="details">
-              <p>
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Totam
-                dolorem explicabo non voluptate aliquid tempore! Alias cum
-                corrupti laudantium quis asperiores, ullam voluptatem ducimus
-                non veritatis accusantium perspiciatis provident laborum?
-              </p>
-            </div>
-          </div>
-
-          <div class="item__footer">
-            <a href="">Add to Cart</a>
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="item__title">
-            <h2>What's new</h2>
-          </div>
-          <div class="item__body">
-            <div class="preview">
-              <h3>Brand<br /><span>Item Name</span></h3>
-              <p>$100.00</p>
-              <img src="/assets/img/cookies.png" alt="Product Image" />
-            </div>
-
-            <div class="details">
-              <p>
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Totam
-                dolorem explicabo non voluptate aliquid tempore! Alias cum
-                corrupti laudantium quis asperiores, ullam voluptatem ducimus
-                non veritatis accusantium perspiciatis provident laborum?
-              </p>
-            </div>
-          </div>
-
-          <div class="item__footer">
-            <a href="">Add to Cart</a>
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="item__title">
-            <h2>What's new</h2>
-          </div>
-          <div class="item__body">
-            <div class="preview">
-              <h3>Brand<br /><span>Item Name</span></h3>
-              <p>$100.00</p>
-              <img src="/assets/img/cookies.png" alt="Product Image" />
-            </div>
-
-            <div class="details">
-              <p>
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Totam
-                dolorem explicabo non voluptate aliquid tempore! Alias cum
-                corrupti laudantium quis asperiores, ullam voluptatem ducimus
-                non veritatis accusantium perspiciatis provident laborum?
-              </p>
-            </div>
-          </div>
-
-          <div class="item__footer">
-            <a href="">Add to Cart</a>
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="item__title">
-            <h2>What's new</h2>
-          </div>
-          <div class="item__body">
-            <div class="preview">
-              <h3>Brand<br /><span>Item Name</span></h3>
-              <p>$100.00</p>
-              <img src="/assets/img/cookies.png" alt="Product Image" />
-            </div>
-
-            <div class="details">
-              <p>
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Totam
-                dolorem explicabo non voluptate aliquid tempore! Alias cum
-                corrupti laudantium quis asperiores, ullam voluptatem ducimus
-                non veritatis accusantium perspiciatis provident laborum?
-              </p>
-            </div>
-          </div>
-
-          <div class="item__footer">
-            <a href="">Add to Cart</a>
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="item__title">
-            <h2>What's new</h2>
-          </div>
-          <div class="item__body">
-            <div class="preview">
-              <h3>Brand<br /><span>Item Name</span></h3>
-              <p>$100.00</p>
-              <img src="/assets/img/cookies.png" alt="Product Image" />
-            </div>
-
-            <div class="details">
-              <p>
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Totam
-                dolorem explicabo non voluptate aliquid tempore! Alias cum
-                corrupti laudantium quis asperiores, ullam voluptatem ducimus
-                non veritatis accusantium perspiciatis provident laborum?
-              </p>
-            </div>
-          </div>
-
-          <div class="item__footer">
-            <a href="">Add to Cart</a>
+            <button class="btn-cart" data-id="1235">Add to Cart</button>
           </div>
         </div>
       </div>

@@ -205,15 +205,110 @@ nav .active .bar::before {
           justify-content: flex-end;
 }
 
-.grid-container .item__footer a {
+.grid-container .item__footer button {
   background-color: #c1d37f;
   padding: 0.5em 1em;
   font-size: 1rem;
   border-radius: 5px;
   color: #554640;
   text-decoration: none;
+  border: none;
+  cursor: pointer;
 }
 
+.modal {
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  right: 0;
+  background-color: rgba(85, 70, 64, 0.7);
+  z-index: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.modal .content {
+  width: 60%;
+  background-color: #cde6f5;
+  padding: 1rem 2rem;
+  border-radius: 5px;
+}
+
+.modal__header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.modal__header h2 {
+  font-size: 1rem;
+}
+
+.modal__header span {
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+.modal__body {
+  width: 90%;
+}
+
+.modal__body form {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.modal__body form input {
+  width: 90%;
+  margin: 0.5em auto;
+  font-size: 0.8rem;
+  padding: 0.5em 1em;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #554640;
+  border-radius: 0.5em;
+  outline: transparent;
+}
+
+.modal__body form button[type="submit"] {
+  background-color: #664e4c;
+  color: #c1d37f;
+  padding: 0.5em 1em;
+  border-radius: 0.5em;
+  font-size: 1rem;
+}
+
+.hidden {
+  display: none;
+}
+
+/*===================================
+            Media Queries Area
+=====================================*/
 @media only screen and (min-width: 1200px) {
   .grid-container {
     display: -ms-grid;
@@ -223,4 +318,8 @@ nav .active .bar::before {
     gap: 1rem;
   }
 }
+
+/*===================================
+        <end> Mixins Area <end>
+=====================================*/
 /*# sourceMappingURL=main.css.map */
