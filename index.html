@@ -30,12 +30,18 @@
           <span id="btnCloseModal">&times</span>
         </div>
         <div class="modal__body">
-          <form action="POST">
-            <input type="number" min="1" />
+          <form action="POST" id="modalForm">
+            <input id="quantity" type="number" min="1" value="1" />
             <button type="submit">Buy</button>
           </form>
         </div>
       </div>
+    </div>
+
+    <div class="cart" id="shopping-list">
+      <!-- <div class="cart__item">
+        <span>Product Name</span> <b>1</b> <strong>$100</strong>
+      </div> -->
     </div>
 
     <main>
