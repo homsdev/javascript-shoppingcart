@@ -41,33 +41,57 @@ function saveItem(productID,quantity){
 
 }
 
+async function getCart(){
+    let cart= await fetch('https://fakestoreapi.com/carts/1')
+    .then(res=>res.json()) 
+    .then(json=> {return json;});
+    return cart;
+}
+
 function isItemInCart(productID){
     return localStorage.getItem(productID);
 }
 
+ function showCartItems(){
+     shoppingList.innerHTML = '';
+     getCart()//getting cart info as a promise
+     .then(cart=> {
+         const fragment = document.createDocumentFragment();
+         for(cartItem of cart.products){
+             let itemDiv= document.createElement('div');
+             itemDiv.classList.add('cart__item');
 
-function showCartItems(){
-    const fragment = document.createDocumentFragment();
+            let name = document.createElement('span');
+            let quantity = document.createElement('b');
+            let total = document.createElement('strong');
+            let btnDelete = document.createElement('button');
 
-    for(i=0;i<5;i++){
-        let box= document.createElement('div');
-        box.classList.add('cart__item');
-        let name= document.createElement('span');
-        let quantity= document.createElement('b');
-        let total = document.createElement('strong');
-
-        name.innerHTML = 'Product Name';
-        quantity.innerHTML = '5';
-        total.innerHTML = '$5000';
-
-        box.appendChild(name);
-        box.appendChild(quantity);
-        box.appendChild(total);
-        fragment.appendChild(box);
-    }
-
-    shoppingList.appendChild(fragment);
-
+            name.innerHTML = cartItem.productId;
+            quantity.innerHTML = cartItem.quantity;
+            total.innerHTML = '$'+ 100* cartItem.quantity;
+            btnDelete.setAttribute('data-id',cartItem.productId);
+            btnDelete.innerHTML = '&#10006';
+            itemDiv.appendChild(name);
+            itemDiv.appendChild(quantity);
+            itemDiv.appendChild(total);
+            itemDiv.appendChild(btnDelete);
+            fragment.appendChild(itemDiv);
+         }
+         shoppingList.appendChild(fragment);
+     });
 }
 
-showCartItems();
+
+const btnCloseCart = document.getElementById("btnCloseCart");
+const cartBox = document.querySelector(".cart");
+
+btnCloseCart.addEventListener("click",()=>{
+    cartBox.classList.toggle("cart-hide")
+    if(!cartBox.classList.contains("cart-hide")){
+        btnCloseCart.style.background = "url(/assets/img/icons/cancel.png)";
+        showCartItems();
+    }else{
+        btnCloseCart.style.background = "url(/assets/img/icons/shopping-cart.png)";
+    }
+    btnCloseCart.style.backgroundSize = "cover";
+});
