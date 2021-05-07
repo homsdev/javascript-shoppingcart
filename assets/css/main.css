@@ -14,6 +14,9 @@ body {
 nav {
   width: 100%;
   height: 3rem;
+  position: fixed;
+  top: 0;
+  left: 0;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -24,6 +27,7 @@ nav {
       -ms-flex-align: center;
           align-items: center;
   background-color: #cde6f5;
+  z-index: 3000;
 }
 
 nav .logo {
@@ -52,6 +56,7 @@ nav .toggle {
           align-items: center;
   padding: 0 0.2rem;
   cursor: pointer;
+  z-index: 4000;
 }
 
 nav .toggle .bar, nav .toggle .bar::before, nav .toggle .bar::after {
@@ -85,14 +90,51 @@ nav ul {
   top: 3rem;
   left: 0;
   margin: 0;
+  padding-left: 0;
   background-color: #cde6f5;
+  z-index: 3000;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  list-style: none;
   overflow: hidden;
   -webkit-transition: 1s ease;
   transition: 1s ease;
 }
 
+nav ul li {
+  width: 100%;
+  font-family: "Noto Sans JP", sans-serif;
+  font-size: 1rem;
+  text-align: center;
+}
+
+nav ul li:nth-child(odd) {
+  background-color: #b8dbf1;
+}
+
+nav ul li a {
+  text-transform: uppercase;
+  text-decoration: none;
+  letter-spacing: 1px;
+}
+
+nav ul li a img {
+  display: none;
+}
+
 nav .active ul {
-  height: 6rem;
+  height: 6.5rem;
 }
 
 nav .active .bar, nav .active .toggle .bar::before, nav .toggle .active .bar::before, nav .active .toggle .bar::after, nav .toggle .active .bar::after {
@@ -122,6 +164,7 @@ nav .active .bar::before {
       -ms-flex-direction: column;
           flex-direction: column;
   padding: 1rem 5%;
+  margin-top: 3rem;
 }
 
 .grid-container .item {
@@ -316,8 +359,8 @@ nav .active .bar::before {
   background-color: #cde6f5;
   z-index: 2000;
   border-radius: 0.5em;
-  -webkit-transition: .5s ease;
-  transition: .5s ease;
+  -webkit-transition: 0.5s ease;
+  transition: 0.5s ease;
 }
 
 .cart__items {
@@ -367,7 +410,7 @@ nav .active .bar::before {
   border-width: 2px;
   border-style: solid;
   border-color: #e61d0f;
-  border-radius: .5em;
+  border-radius: 0.5em;
   background-color: #f24236;
   outline: none;
   cursor: pointer;
@@ -383,8 +426,8 @@ nav .active .bar::before {
   height: 50px;
   top: -50px;
   left: 0px;
-  -webkit-transition: .5s ease-in-out;
-  transition: .5s ease-in-out;
+  -webkit-transition: 0.5s ease-in-out;
+  transition: 0.5s ease-in-out;
 }
 
 .cart__toggle button {
@@ -395,7 +438,7 @@ nav .active .bar::before {
   background-repeat: none;
   background-color: #cde6f5;
   border: 1px solid #554640;
-  border-radius: .5em;
+  border-radius: 0.5em;
   cursor: pointer;
 }
 
@@ -413,6 +456,65 @@ nav .active .bar::before {
           Media Queries Area
 =====================================*/
 @media only screen and (min-width: 1200px) {
+  nav ul {
+    height: 100%;
+    width: 0;
+    right: 0;
+    left: unset;
+    background-color: #f8fbfe;
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: (1fr)[2];
+        grid-template-columns: repeat(2, 1fr);
+    -webkit-box-pack: stretch;
+        -ms-flex-pack: stretch;
+            justify-content: stretch;
+  }
+  nav ul li {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: space-evenly;
+        -ms-flex-pack: space-evenly;
+            justify-content: space-evenly;
+    font-size: 1.5rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    -webkit-transition: 1s ease-out;
+    transition: 1s ease-out;
+  }
+  nav ul li:nth-child(odd) {
+    background-color: transparent;
+  }
+  nav ul li:hover {
+    background-color: #a3d1ed;
+    border-radius: 0.5em;
+  }
+  nav ul li a img {
+    display: block;
+    width: 50%;
+    margin: 0 auto;
+  }
+  nav ul li a img:hover {
+    -webkit-animation: aniJello 2s ease-out;
+            animation: aniJello 2s ease-out;
+    -webkit-transform-origin: center;
+            transform-origin: center;
+  }
+  nav .active ul {
+    height: 100%;
+    width: 30%;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
   .grid-container {
     display: -ms-grid;
     display: grid;
@@ -428,5 +530,88 @@ nav .active .bar::before {
 
 /*===================================
         <end> Media Queries Area <end>
+=====================================*/
+/*===================================
+        Animations KeyFrames
+=====================================*/
+@-webkit-keyframes aniJello {
+  11.1% {
+    -webkit-transform: none;
+            transform: none;
+  }
+  22.2% {
+    -webkit-transform: skewX(-12.5deg) skewY(-12.5deg);
+            transform: skewX(-12.5deg) skewY(-12.5deg);
+  }
+  33.3% {
+    -webkit-transform: skewX(6.25deg) skewY(6.25deg);
+            transform: skewX(6.25deg) skewY(6.25deg);
+  }
+  44.4% {
+    -webkit-transform: skewX(-3.125deg) skewY(-3.125deg);
+            transform: skewX(-3.125deg) skewY(-3.125deg);
+  }
+  55.5% {
+    -webkit-transform: skewX(1.5625deg) skewY(1.5625deg);
+            transform: skewX(1.5625deg) skewY(1.5625deg);
+  }
+  66.6% {
+    -webkit-transform: skewX(-0.78125deg) skewY(-0.78125deg);
+            transform: skewX(-0.78125deg) skewY(-0.78125deg);
+  }
+  77.7% {
+    -webkit-transform: skewX(0.39062deg) skewY(0.39062deg);
+            transform: skewX(0.39062deg) skewY(0.39062deg);
+  }
+  88.8% {
+    -webkit-transform: skewX(-0.19531deg) skewY(-0.19531deg);
+            transform: skewX(-0.19531deg) skewY(-0.19531deg);
+  }
+  100% {
+    -webkit-transform: none;
+            transform: none;
+  }
+}
+@keyframes aniJello {
+  11.1% {
+    -webkit-transform: none;
+            transform: none;
+  }
+  22.2% {
+    -webkit-transform: skewX(-12.5deg) skewY(-12.5deg);
+            transform: skewX(-12.5deg) skewY(-12.5deg);
+  }
+  33.3% {
+    -webkit-transform: skewX(6.25deg) skewY(6.25deg);
+            transform: skewX(6.25deg) skewY(6.25deg);
+  }
+  44.4% {
+    -webkit-transform: skewX(-3.125deg) skewY(-3.125deg);
+            transform: skewX(-3.125deg) skewY(-3.125deg);
+  }
+  55.5% {
+    -webkit-transform: skewX(1.5625deg) skewY(1.5625deg);
+            transform: skewX(1.5625deg) skewY(1.5625deg);
+  }
+  66.6% {
+    -webkit-transform: skewX(-0.78125deg) skewY(-0.78125deg);
+            transform: skewX(-0.78125deg) skewY(-0.78125deg);
+  }
+  77.7% {
+    -webkit-transform: skewX(0.39062deg) skewY(0.39062deg);
+            transform: skewX(0.39062deg) skewY(0.39062deg);
+  }
+  88.8% {
+    -webkit-transform: skewX(-0.19531deg) skewY(-0.19531deg);
+            transform: skewX(-0.19531deg) skewY(-0.19531deg);
+  }
+  100% {
+    -webkit-transform: none;
+            transform: none;
+  }
+}
+
+/*===================================
+    <end> Animations KeyFrames <end>
 =====================================*/
 /*# sourceMappingURL=main.css.map */

@@ -6,6 +6,7 @@ $danger: #f24236;
 $cursive_font: "Lobster", cursive;
 $font_normal: "Antonio", sans-serif;
 $text_font: "Noto Sans JP", sans-serif;
+$nOptions: 5; //number of options in the menu
 @import url("https://fonts.googleapis.com/css2?family=Lobster&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Antonio:wght@100;200;300;400;500;600;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300&display=swap");
@@ -37,6 +38,12 @@ $text_font: "Noto Sans JP", sans-serif;
   outline: transparent;
 }
 
+@mixin columnFlexDisplay() {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
 /*===================================
         <end> Mixins Area <end>
 =====================================*/
@@ -48,10 +55,14 @@ body {
 nav {
   width: 100%;
   height: 3rem;
+  position: fixed;
+  top: 0;
+  left: 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
   background-color: $light;
+  z-index: 3000;
 
   .logo {
     text-decoration: none;
@@ -73,6 +84,7 @@ nav {
     align-items: center;
     padding: 0 0.2rem;
     cursor: pointer;
+    z-index: 4000;
     .bar {
       position: relative;
       width: 100%;
@@ -102,14 +114,38 @@ nav {
     top: 3rem;
     left: 0;
     margin: 0;
+    padding-left: 0;
     background-color: $light;
+    z-index: 3000;
+    @include columnFlexDisplay();
+    list-style: none;
     overflow: hidden;
     transition: 1s ease;
+
+    li {
+      width: 100%;
+      font-family: $text_font;
+      font-size: 1rem;
+      text-align: center;
+
+      &:nth-child(odd) {
+        background-color: darken($color: $light, $amount: 5%);
+      }
+
+      a {
+        text-transform: uppercase;
+        text-decoration: none;
+        letter-spacing: 1px;
+        img {
+          display: none;
+        }
+      }
+    }
   }
 
   .active {
     ul {
-      height: 6rem;
+      height: 1.3rem * $nOptions;
     }
 
     .bar {
@@ -131,6 +167,7 @@ nav {
   display: flex;
   flex-direction: column;
   padding: 1rem 5%;
+  margin-top: 3rem;
   .item {
     border: 1px solid $wood;
     border-radius: 10px;
@@ -161,14 +198,14 @@ nav {
         h3 {
           font-size: 2.8rem;
           line-height: 2.4rem;
-          margin:0;
+          margin: 0;
           font-family: $cursive_font;
           span {
             font-size: 1.4rem;
             font-family: $font_normal;
             margin: {
               top: 0.5em;
-            };
+            }
           }
         }
 
@@ -285,10 +322,10 @@ nav {
   background-color: $light;
   z-index: 2000;
   border-radius: 0.5em;
- 
-  transition: .5s ease;
 
-  &__items{
+  transition: 0.5s ease;
+
+  &__items {
     width: 100%;
     height: 90%;
     display: flex;
@@ -314,63 +351,110 @@ nav {
       font-family: $font_normal;
     }
 
-    button{
+    button {
       width: 40px;
       height: 40px;
       border : {
         width: 2px;
         style: solid;
         color: darken($color: $danger, $amount: 10%);
-        radius: .5em;
+        radius: 0.5em;
       }
       background-color: $danger;
       outline: none;
       cursor: pointer;
 
-      &:hover{
+      &:hover {
         background-color: lighten($color: $danger, $amount: 10%);
       }
     }
   }
 
-  &__toggle{
+  &__toggle {
     position: absolute;
     width: 50px;
     height: 50px;
-    top:-50px;
+    top: -50px;
     left: 0px;
-    transition: .5s ease-in-out;
-    button{
+    transition: 0.5s ease-in-out;
+    button {
       width: 50px;
       height: 50px;
       background: url("/assets/img/icons/shopping-cart.png");
       background-size: cover;
       background-repeat: none;
-      background-color: $light;     
+      background-color: $light;
       border: 1px solid $dark;
-      border-radius: .5em;
+      border-radius: 0.5em;
       cursor: pointer;
     }
   }
 }
 
-
-.cart{
-    
-  &-hide{
+.cart {
+  &-hide {
     transform: translateX(100%);
-    .cart__toggle{
-      transform: translate3d(-100%,100%,0);
+    .cart__toggle {
+      transform: translate3d(-100%, 100%, 0);
     }
   }
-
-  
-
 }
 
 /*===================================
           Media Queries Area
 =====================================*/
+nav {
+  @include laptop() {
+    ul {
+      height: 100%;
+      width: 0;
+      right: 0;
+      left: unset;
+      background-color: lighten($color: $light, $amount: 10%);
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      justify-content: stretch;
+
+      li {
+        @include columnFlexDisplay();
+        font-size: 1.5rem;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        transition: 1s ease-out;
+
+        &:nth-child(odd) {
+          background-color: transparent;
+        }
+
+        &:hover {
+          background-color: darken($color: $light, $amount: 10%);
+          border-radius: 0.5em;
+        }
+
+        a {
+          img {
+            display: block;
+            width: 50%;
+            margin: 0 auto;
+
+            &:hover {
+              animation: aniJello 2s ease-out;
+              transform-origin: center;
+            }
+          }
+        }
+      }
+    }
+
+    .active {
+      ul {
+        height: 100%;
+        width: 30%;
+      }
+    }
+  }
+}
+
 .grid-container {
   @include laptop() {
     display: grid;
@@ -388,4 +472,42 @@ nav {
 
 /*===================================
         <end> Media Queries Area <end>
+=====================================*/
+
+/*===================================
+        Animations KeyFrames
+=====================================*/
+
+@keyframes aniJello {
+  11.1% {
+    transform: none;
+  }
+  22.2% {
+    transform: skewX(-12.5deg) skewY(-12.5deg);
+  }
+  33.3% {
+    transform: skewX(6.25deg) skewY(6.25deg);
+  }
+  44.4% {
+    transform: skewX(-3.125deg) skewY(-3.125deg);
+  }
+  55.5% {
+    transform: skewX(1.5625deg) skewY(1.5625deg);
+  }
+  66.6% {
+    transform: skewX(-0.78125deg) skewY(-0.78125deg);
+  }
+  77.7% {
+    transform: skewX(0.390625deg) skewY(0.390625deg);
+  }
+  88.8% {
+    transform: skewX(-0.1953125deg) skewY(-0.1953125deg);
+  }
+  100% {
+    transform: none;
+  }
+}
+
+/*===================================
+    <end> Animations KeyFrames <end>
 =====================================*/
