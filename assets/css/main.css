@@ -155,6 +155,124 @@ nav .active .bar::before {
           transform: rotate(45deg);
 }
 
+.nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.nav .logo {
+  font-size: 1.2rem;
+}
+
+.nav .sign {
+  width: 30%;
+  margin-right: 1em;
+  justify-self: flex-end;
+}
+
+.nav .sign a {
+  width: 200px;
+  font-family: "Lobster", cursive;
+  font-size: 1.5rem;
+  color: #554640;
+  text-transform: uppercase;
+  text-decoration: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.nav .sign a img {
+  width: 40px;
+  height: 40px;
+  margin-left: 0.5em;
+}
+
+.landing {
+  width: 100%;
+  height: 100vh;
+  background-image: url("/assets/img/bg.jpg");
+  background-size: cover;
+  background-repeat: none;
+}
+
+.landing .content {
+  width: inherit;
+  height: inherit;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  background-color: rgba(85, 70, 64, 0.4);
+  position: relative;
+}
+
+.landing .content h1 {
+  font-family: "Lobster", cursive;
+  font-size: 4rem;
+  color: #cde6f5;
+}
+
+.landing .content h2 {
+  width: 40%;
+  position: absolute;
+  top: 50%;
+  right: 2em;
+  -webkit-transform: translateY(-200%);
+          transform: translateY(-200%);
+  border-radius: 0.5em;
+  font-family: "Lobster", cursive;
+  background-color: #c1d37f;
+  color: #554640;
+  padding: 1em 2em;
+  text-align: justify;
+  letter-spacing: 1px;
+}
+
+.landing .content h2::before {
+  content: "";
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  background-color: #c1d37f;
+  bottom: 0;
+  -webkit-transform: translateY(20%) rotate(50deg);
+          transform: translateY(20%) rotate(50deg);
+  z-index: -1;
+}
+
+.landing .content a {
+  font-family: "Antonio", sans-serif;
+  font-weight: 900;
+  font-size: 1rem;
+  text-transfrom: uppercase;
+  text-decoration: none;
+  letter-spacing: 1px;
+  border-radius: 0.5em;
+  border-width: 2px;
+  border-style: solid;
+  border-color: #554640;
+  padding: 0.5em 1em;
+  background-color: #cde6f5;
+  color: #664e4c;
+}
+
 .grid-container {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -452,6 +570,18 @@ nav .active .bar::before {
           transform: translate3d(-100%, 100%, 0);
 }
 
+.pop {
+  width: 200px;
+  background-color: #eee3ab;
+  position: absolute;
+  z-index: 4000;
+  top: 10%;
+  left: 3em;
+  font-size: 1rem;
+  border-radius: 0.5em;
+  padding: 0.5em 1em;
+}
+
 /*===================================
           Media Queries Area
 =====================================*/
@@ -511,6 +641,19 @@ nav .active .bar::before {
   nav .active ul {
     height: 100%;
     width: 30%;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .nav .sign {
+    width: 120px;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .landing .content h2 {
+    -webkit-transform: translateY(-250%);
+            transform: translateY(-250%);
   }
 }
 
