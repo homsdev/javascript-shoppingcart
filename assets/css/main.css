@@ -472,7 +472,7 @@ nav .active .bar::before {
   width: 300px;
   height: 300px;
   position: fixed;
-  top: 5rem;
+  top: 7rem;
   right: 1rem;
   background-color: #cde6f5;
   z-index: 2000;
